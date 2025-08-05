@@ -10,6 +10,18 @@ const allQuestions = [
     correct: 'Притормозить',
     cost: 1,
   },
+  {
+    question: 'На какой цвет переходить дорогу?',
+    answers: ['желтый', 'черный', 'красный', 'зеленый'],
+    correct: 'зеленый',
+    cost: 5,
+  },
+  {
+    question: 'Какова максимальная скорость в городе? ?',
+    answers: ['50 km/h', '390 km/h', '100 km/h', '8 km/h'],
+    correct: '50 km/h',
+    cost: 3,
+  },
 ]
 
 const askedQuestions = []
@@ -18,19 +30,17 @@ const answeredQuestions = []
 
 let idx = 0
 
+function randomQuestionIdx() {
+  return Math.floor(Math.random() * allQuestions.length)
+}
+
+console.log(randomQuestionIdx())
+
 function askQuestion() {
   const question = allQuestions[idx].question
   const answers = allQuestions[idx].answers
-  askedQuestions.push(idx)
 
-  // console.log('=====')
-  // console.log('Вопрос:')
-  // console.log(question)
-  // console.log('Варианты ответа:')
-  // answers.forEach(answer => {
-  //   console.log('-', answer)
-  // })
-  // console.log('=====')
+  askedQuestions.push(idx)
 }
 
 function giveAnswer(answer) {
@@ -45,24 +55,12 @@ askQuestion()
 
 giveAnswer('Притормозить')
 
-allQuestions
-askedQuestions
-answeredQuestions
-
 function checkAnswers() {
   let sumCost = 0
-  answeredQuestions
   answeredQuestions.forEach(answeredQuestion => {
-    answeredQuestion
-
     const userAnswer = answeredQuestion.selectedAnswer
     const correctAnswer = allQuestions[answeredQuestion.questionIdx].correct
     const costAnswer = allQuestions[answeredQuestion.questionIdx].cost
-
-    console.log(userAnswer)
-    console.log(correctAnswer)
-
-    console.log(userAnswer === correctAnswer)
 
     if (userAnswer === correctAnswer) {
       sumCost += costAnswer
