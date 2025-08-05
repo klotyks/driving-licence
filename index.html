@@ -5,27 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <style>
-    .send-result {
-      padding-top: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/style.css" />
   <body>
     <div class="main">
       <div class="questions">
-        <h2 class="question"></h2>
+        <h2 class="question">Какой ответ правильный ? <sup>***</sup></h2>
       </div>
-      <div class="answers">
-        <label><input type="radio" name="radio" /> Option 1</label><br />
-        <label><input type="radio" name="radio" /> Option 2</label><br />
-        <label><input type="radio" name="radio" /> Option 3</label><br />
-        <label><input type="radio" name="radio" /> Option 3</label>
+      <div class="answers row">
+        <div class="col">
+          <div>
+            <label>
+              <input type="radio" name="answer" value="A" />
+              <b>A:</b> <span id="answerA">Option 1</span>
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="answer" value="C" />
+              <b>C:</b> <span id="answerA">Option 3</span>
+            </label>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <label>
+              <input type="radio" name="answer" value="B" />
+              <b>B:</b> <span>Option 2</span>
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" name="answer" value="D" />
+              <b>D:</b> <span>Option 4</span>
+            </label>
+          </div>
+        </div>
       </div>
       <div class="send-result">
         <button>Select</button>
       </div>
     </div>
-    <script src="./js/view.js"></script>
-    <script src="./js/dataQuestions.js"></script>
   </body>
 </html>
