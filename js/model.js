@@ -1,4 +1,4 @@
-const allQuestions = [
+const quizes = [
   {
     question: 'Что делать если бабулька переходи дорогу ?',
     answers: [
@@ -17,31 +17,50 @@ const allQuestions = [
     cost: 5,
   },
   {
-    question: 'Какова максимальная скорость в городе? ?',
+    question: 'Какова максимальная скорость в городе?',
     answers: ['50 km/h', '390 km/h', '100 km/h', '8 km/h'],
     correct: '50 km/h',
     cost: 3,
   },
 ]
 
-const askedQuestions = []
+let currentQuiz
+
+let askedQuestions = []
 
 const answeredQuestions = []
 
 let idx = 0
 
 function randomQuestionIdx() {
-  return Math.floor(Math.random() * allQuestions.length)
+  return Math.floor(Math.random() * quizes.length)
 }
+
+idx = randomQuestionIdx()
 
 console.log(randomQuestionIdx())
 
 function askQuestion() {
-  const question = allQuestions[idx].question
-  const answers = allQuestions[idx].answers
-
-  askedQuestions.push(idx)
+  if (askedQuestions.length === quizes.length) {
+    askedQuestions = [] // Сброс
+  }
+  while (askedQuestions.includes(idx)) {
+    idx = Math.floor(Math.random() * quizes.length) // Новый уникальный индекс
+  }
+  askedQuestions.push(idx) // Добавляем индекс
+  currentQuiz = quizes[idx] // Обновляем текущий вопрос
+  console.log(currentQuiz)
 }
+
+// function askQuestion() {
+//   currentQuiz = quizes[idx]
+//   askedQuestions.push(idx)
+// }
+
+console.log(currentQuiz)
+askQuestion()
+console.log(currentQuiz)
+currentQuiz
 
 function giveAnswer(answer) {
   const answerObject = {
@@ -51,22 +70,23 @@ function giveAnswer(answer) {
   answeredQuestions.push(answerObject)
 }
 
-askQuestion()
+giveAnswer('')
+// askQuestion()
 
-giveAnswer('Притормозить')
+// console.log(answeredQuestions)
 
 function checkAnswers() {
   let sumCost = 0
   answeredQuestions.forEach(answeredQuestion => {
     const userAnswer = answeredQuestion.selectedAnswer
-    const correctAnswer = allQuestions[answeredQuestion.questionIdx].correct
-    const costAnswer = allQuestions[answeredQuestion.questionIdx].cost
+    const correctAnswer = quizes[answeredQuestion.questionIdx].correct
+    const costAnswer = quizes[answeredQuestion.questionIdx].cost
 
     if (userAnswer === correctAnswer) {
       sumCost += costAnswer
     }
   })
-  sumCost
+  // sumCost
 }
 
 checkAnswers()

@@ -69,6 +69,16 @@ div {
   box-shadow: 0 0 15px 0 #2345;
   margin: 25px 0;
 }
+.next-question button {
+  font-size: 26px;
+  padding: 15px 70px;
+  border-radius: 20px;
+  background: #fff;
+  border: 0px solid #234;
+  box-shadow: 0 0 15px 0 #2345;
+  margin: 5px 0;
+  margin-left: 600px;
+}
 
 label {
   padding: 0 15px;
