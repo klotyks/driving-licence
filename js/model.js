@@ -25,55 +25,31 @@ const quizes = [
 ]
 
 let currentQuiz
-
-let askedQuestions = []
-
-const answeredQuestions = []
-
-let idx = 0
+let askedQuestionsIdxs = []
+let answeredQuestions = []
+let currentQuizIdx = randomQuestionIdx()
 
 function randomQuestionIdx() {
   return Math.floor(Math.random() * quizes.length)
 }
 
-idx = randomQuestionIdx()
-
-console.log(randomQuestionIdx())
-
 function askQuestion() {
-  if (askedQuestions.length === quizes.length) {
-    askedQuestions = [] // Сброс
+  if (askedQuestionsIdxs.length >= 2) return false
+  while (askedQuestionsIdxs.includes(currentQuizIdx)) {
+    currentQuizIdx = randomQuestionIdx()
   }
-  while (askedQuestions.includes(idx)) {
-    idx = Math.floor(Math.random() * quizes.length) // Новый уникальный индекс
-  }
-  askedQuestions.push(idx) // Добавляем индекс
-  currentQuiz = quizes[idx] // Обновляем текущий вопрос
-  console.log(currentQuiz)
+  currentQuiz = quizes[currentQuizIdx]
+  askedQuestionsIdxs.push(currentQuizIdx)
+  return true
 }
-
-// function askQuestion() {
-//   currentQuiz = quizes[idx]
-//   askedQuestions.push(idx)
-// }
-
-console.log(currentQuiz)
-askQuestion()
-console.log(currentQuiz)
-currentQuiz
 
 function giveAnswer(answer) {
   const answerObject = {
-    questionIdx: idx,
+    questionIdx: currentQuizIdx,
     selectedAnswer: answer,
   }
   answeredQuestions.push(answerObject)
 }
-
-giveAnswer('')
-// askQuestion()
-
-// console.log(answeredQuestions)
 
 function checkAnswers() {
   let sumCost = 0
@@ -89,4 +65,20 @@ function checkAnswers() {
   // sumCost
 }
 
-checkAnswers()
+// function askQuestion() {
+//   currentQuiz = quizes[idx]
+//   askedQuestions.push(idx)
+// }
+
+// askQuestion()
+// console.log(currentQuizIdx)
+// askQuestion()
+// console.log(currentQuizIdx)
+// askQuestion()
+// console.log(currentQuizIdx)
+// askQuestion()
+// console.log(currentQuizIdx)
+// askQuestion()
+// console.log(currentQuizIdx)
+// askQuestion()
+// console.log(currentQuizIdx)

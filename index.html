@@ -7,22 +7,25 @@
   </head>
   <link rel="stylesheet" href="./css/style.css" />
   <body>
+    <div class="wrap-button">
+      <button id="elButtonStartQuiz">Start quiz</button>
+    </div>
     <div class="main">
       <div class="questions">
-        <h2 class="question"><sup>***</sup></h2>
+        <h2 class="question"><sup></sup></h2>
       </div>
       <div class="answers row">
         <div class="col">
           <div>
             <label>
               <input type="radio" name="answer" value="A" />
-              <b>A:</b> <span id="answerA">Option 1</span>
+              <b>A:</b> <span id="answerA"></span>
             </label>
           </div>
           <div>
             <label>
               <input type="radio" name="answer" value="C" />
-              <b>C:</b> <span id="answerC">Option 3</span>
+              <b>C:</b> <span id="answerC"></span>
             </label>
           </div>
         </div>
@@ -30,22 +33,22 @@
           <div>
             <label>
               <input type="radio" name="answer" value="B" />
-              <b>B:</b> <span id="answerB">Option 2</span>
+              <b>B:</b> <span id="answerB"></span>
             </label>
           </div>
           <div>
             <label>
               <input type="radio" name="answer" value="D" />
-              <b>D:</b> <span id="answerD">Option 4</span>
+              <b>D:</b> <span id="answerD"></span>
             </label>
           </div>
         </div>
       </div>
-      <div class="send-result">
-        <button id="select">Select</button>
+      <div class="wrap-button">
+        <button id="select">Confirm answer</button>
       </div>
-      <div class="next-question">
-        <button id="next-question">Next Question</button>
+      <div class="wrap-button">
+        <button id="next-question">Next question</button>
       </div>
     </div>
     <script src="./js/view.js"></script>
