@@ -7,4 +7,7 @@ function handleGiveAnswer(answer) {
   giveAnswer(answer)
 }
 
-function handleSelectAnswer() {}
+function handleStartQuiz() {
+  askQuestion()
+  renderQuiz(currentQuiz)
+}

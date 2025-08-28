@@ -20,22 +20,38 @@ function renderQuiz(quiz) {
   renderAnswers(quiz.answers)
 }
 
-function onClickButtonSelect() {
+function onClickButtonConfirm() {
   const selectedRadio = document.querySelector('input[name="answer"]:checked')
   if (selectedRadio) {
     const span = selectedRadio.parentElement.querySelector('span')
     if (span) {
       handleGiveAnswer(span.textContent)
+      handleAskNextQuestion()
     }
   }
 }
 
-function onClickButtonSelectNextQuiz() {
-  handleAskNextQuestion()
+
+
+function onClickButtonStartQuiz() {
+  const nonStartQuizButton = document.querySelector('#elButtonStartQuiz')
+  if (nonStartQuizButton) {
+    nonStartQuizButton.classList.add('none-display')
+    nonStartQuizButton.removeAttribute('id')
+  }
+  const elMain = document.querySelector('#display')
+  if (elMain) {
+    elMain.classList.add('main-display')
+    elMain.removeAttribute('id')
+  }
+  handleStartQuiz()
 }
 
 const elButton = document.querySelector('#select')
-elButton.onclick = onClickButtonSelect
+elButton.onclick = onClickButtonConfirm
 
-const elButtonNextQuiz = document.querySelector('#next-question')
-elButtonNextQuiz.onclick = onClickButtonSelectNextQuiz
+// const elButtonNextQuiz = document.querySelector('#next-question')
+// elButtonNextQuiz.onclick = onClickButtonSelectNextQuiz
+
+const elButtonStartQuiz = document.querySelector('#elButtonStartQuiz')
+elButtonStartQuiz.onclick = onClickButtonStartQuiz

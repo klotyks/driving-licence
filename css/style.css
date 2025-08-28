@@ -14,14 +14,27 @@ option {
   user-select: none;
 }
 
+#display {
+  display: none;
+}
+
+.none-display {
+  display: none;
+}
+
 div {
   /* border: 1px solid #234; */
   padding: 5px;
 }
 
-.main {
-  border: 5px solid #234;
+.main-display {
   border-radius: 20px;
+  border: 5px solid #234;
+}
+
+.quiz-result {
+  border-radius: 20px;
+  border: 5px solid #234;
 }
 
 .question {
