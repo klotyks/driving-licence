@@ -23,20 +23,33 @@ const quizes = [
     cost: 3,
   },
   {
-    question: ' Какой минимальный возраст для получения водительского удостоверения в Японии для легковых автомобилей?',
+    question:
+      'Какой минимальный возраст для получения водительского удостоверения в Японии для легковых автомобилей?',
     answers: ['16', '17', '18', '19'],
     correct: '18',
     cost: 2,
   },
   {
-    question: ' Какой тест обязателен для получения водительских прав в Великобритании?',
-    answers: ['Только теоретический тест', ' Теоретический и практический тесты', 'Только практический тест', ' Тест на знание механики автомобиля'],
+    question:
+      'Какой тест обязателен для получения водительских прав в Великобритании?',
+    answers: [
+      'Только теоретический тест',
+      'Теоретический и практический тесты',
+      'Только практический тест',
+      'Тест на знание механики автомобиля',
+    ],
     correct: 'Теоретический и практический тесты',
     cost: 2,
   },
   {
-    question: ' Какой документ чаще всего требуется для продления водительских прав в Австралии?',
-    answers: [' Справка о прохождении полного медицинского осмотра', ' Подтверждение адреса проживания', ' Копия паспорта', ' Справка из автошколы'],
+    question:
+      'Какой документ чаще всего требуется для продления водительских прав в Австралии?',
+    answers: [
+      'Справка о прохождении полного медицинского осмотра',
+      'Подтверждение адреса проживания',
+      'Копия паспорта',
+      'Справка из автошколы',
+    ],
     correct: 'Подтверждение адреса проживания',
     cost: 3,
   },
@@ -68,7 +81,7 @@ function giveAnswer(answer) {
   }
   answeredQuestions.push(answerObject)
 }
-  
+
 function checkAnswers() {
   let sumCost = 0
   answeredQuestions.forEach(answeredQuestion => {
@@ -84,20 +97,13 @@ function checkAnswers() {
   // sumCost
 }
 
-// function askQuestion() {
-//   currentQuiz = quizes[idx]
-//   askedQuestions.push(idx)
-// }
+askQuestion()
+askedQuestionsIdxs
+answeredQuestions
+giveAnswer(currentQuiz.correct)
+askedQuestionsIdxs
+answeredQuestions
 
-// askQuestion()
-// console.log(currentQuizIdx)
-// askQuestion()
-// console.log(currentQuizIdx)
-// askQuestion()
-// console.log(currentQuizIdx)
-// askQuestion()
-// console.log(currentQuizIdx)
-// askQuestion()
-// console.log(currentQuizIdx)
-// askQuestion()
-// console.log(currentQuizIdx)
+console.log(checkAnswers())
+
+console.log(' !' === '!')
