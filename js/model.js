@@ -22,6 +22,24 @@ const quizes = [
     correct: '50 km/h',
     cost: 3,
   },
+  {
+    question: ' Какой минимальный возраст для получения водительского удостоверения в Японии для легковых автомобилей?',
+    answers: ['16', '17', '18', '19'],
+    correct: '18',
+    cost: 2,
+  },
+  {
+    question: ' Какой тест обязателен для получения водительских прав в Великобритании?',
+    answers: ['Только теоретический тест', ' Теоретический и практический тесты', 'Только практический тест', ' Тест на знание механики автомобиля'],
+    correct: 'Теоретический и практический тесты',
+    cost: 2,
+  },
+  {
+    question: ' Какой документ чаще всего требуется для продления водительских прав в Австралии?',
+    answers: [' Справка о прохождении полного медицинского осмотра', ' Подтверждение адреса проживания', ' Копия паспорта', ' Справка из автошколы'],
+    correct: 'Подтверждение адреса проживания',
+    cost: 3,
+  },
 ]
 
 let currentQuiz
@@ -34,7 +52,7 @@ function randomQuestionIdx() {
 }
 
 function askQuestion() {
-  if (askedQuestionsIdxs.length >= 2) return false
+  if (askedQuestionsIdxs.length >= 5) return false
   while (askedQuestionsIdxs.includes(currentQuizIdx)) {
     currentQuizIdx = randomQuestionIdx()
   }
@@ -50,7 +68,7 @@ function giveAnswer(answer) {
   }
   answeredQuestions.push(answerObject)
 }
-
+  
 function checkAnswers() {
   let sumCost = 0
   answeredQuestions.forEach(answeredQuestion => {
@@ -62,6 +80,7 @@ function checkAnswers() {
       sumCost += costAnswer
     }
   })
+  return sumCost
   // sumCost
 }
 

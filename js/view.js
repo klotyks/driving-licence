@@ -25,13 +25,22 @@ function onClickButtonConfirm() {
   if (selectedRadio) {
     const span = selectedRadio.parentElement.querySelector('span')
     if (span) {
-      handleGiveAnswer(span.textContent)
       handleAskNextQuestion()
+      handleGiveAnswer(span.textContent)
     }
   }
+
 }
 
+function renderQuizResult (answered,points) {
+  const elQuizResult = document.querySelector('.quiz-result')
+  const elAnsweredQuestions = document.querySelector('.answered-questions')
+  const elPoints = document.querySelector('.points')
 
+  elQuizResult.style = 'display: block;'
+  elAnsweredQuestions.textContent = answered
+  elPoints.textContent = points
+}
 
 function onClickButtonStartQuiz() {
   const nonStartQuizButton = document.querySelector('#elButtonStartQuiz')
@@ -49,9 +58,6 @@ function onClickButtonStartQuiz() {
 
 const elButton = document.querySelector('#select')
 elButton.onclick = onClickButtonConfirm
-
-// const elButtonNextQuiz = document.querySelector('#next-question')
-// elButtonNextQuiz.onclick = onClickButtonSelectNextQuiz
 
 const elButtonStartQuiz = document.querySelector('#elButtonStartQuiz')
 elButtonStartQuiz.onclick = onClickButtonStartQuiz
